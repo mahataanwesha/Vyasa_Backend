@@ -23,7 +23,13 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (like mobile apps, curl, postman, etc.)
-      if (!origin || whitelist.includes(origin)) {
+      const isAllowed = 
+        !origin || 
+        whitelist.includes(origin) || 
+        origin.endsWith('.vercel.app') || 
+        (process.env.FRONTEND_URL && origin === process.env.FRONTEND_URL);
+
+      if (isAllowed) {
         callback(null, true);
       } else {
         callback(new Error('Blocked by CORS policy'));
