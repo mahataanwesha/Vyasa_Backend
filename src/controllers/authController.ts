@@ -20,10 +20,11 @@ const issueToken = (res: Response, user: User) => {
     { expiresIn: '7d' }
   );
 
+  const isProd = NODE_ENV === 'production';
   res.cookie('token', token, {
     httpOnly: true,
-    secure: NODE_ENV === 'production', // true in prod
-    sameSite: 'strict',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
 };
@@ -147,10 +148,11 @@ export const getMe = async (req: AuthenticatedRequest, res: Response, next: Next
 };
 
 export const logout = (req: Request, res: Response) => {
+  const isProd = NODE_ENV === 'production';
   res.clearCookie('token', {
     httpOnly: true,
-    secure: NODE_ENV === 'production',
-    sameSite: 'strict',
+    secure: isProd,
+    sameSite: isProd ? 'none' : 'lax',
   });
   res.status(200).json({
     success: true,
