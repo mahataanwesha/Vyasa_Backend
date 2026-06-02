@@ -1,0 +1,104 @@
+{
+  "users": [
+    {
+      "id": "u_fb_zj6s5Z1lX0YYhWoetJ3YXbf9Itp2",
+      "email": "mahataasoke02@gmail.com",
+      "passwordHash": "firebase_authenticated_no_password",
+      "fullName": "ASOKE MAHATA",
+      "role": "Doctor",
+      "createdAt": "2026-06-02T10:25:01.140Z"
+    },
+    {
+      "id": "u_1780396310238",
+      "email": "tpal63536@gmail.com",
+      "passwordHash": "$2a$10$UFbvI1L5es02r2BxNgtCVeVVqExqrECbBGnoMtsqLbhnB.zcO.ZVK",
+      "fullName": "TINA PAL",
+      "role": "Doctor",
+      "phone": "",
+      "createdAt": "2026-06-02T10:31:50.238Z",
+      "profileCompleted": true,
+      "doctorProfile": {
+        "title": "Dr.",
+        "fullName": "TINA PAL",
+        "dob": "2002-01-15",
+        "gender": "Female",
+        "nationality": "Indian",
+        "languages": [
+          "English"
+        ],
+        "phone": "9474504734",
+        "whatsappNumber": "9474504734",
+        "address": "KOLKATA",
+        "district": "KOLKATA",
+        "cityState": "KOLKATA",
+        "pinCode": "700001",
+        "degrees": [
+          {
+            "degree": "MBBS",
+            "college": "Grant Medical College",
+            "university": "MUHS",
+            "country": "India",
+            "specialization": "General",
+            "year": "2016"
+          }
+        ],
+        "registrationNumber": "",
+        "medicalCouncil": "Medical Council of India (MCI)",
+        "dateOfRegistration": "",
+        "experienceYears": "5 Years",
+        "specialization": "General Practitioner",
+        "country": "India",
+        "clinicName": "APPOLO",
+        "clinicAddress": "JADAVPUR",
+        "consultationFee": "₹500",
+        "opdTimings": {
+          "Monday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Tuesday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Wednesday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Thursday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Friday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Saturday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "01:00 PM"
+          },
+          "Sunday": {
+            "active": false,
+            "start": "Closed",
+            "end": "Closed"
+          }
+        }
+      }
+    },
+    {
+      "id": "u_1780396824125",
+      "email": "abcd@gmail.com",
+      "passwordHash": "$2a$10$1Ww6dAE1yAJQQlHNOALCWek0BR4rcmcDQdYqZIV7b6KO3UdRNniEm",
+      "fullName": "ABCD",
+      "role": "Admin",
+      "phone": "",
+      "hospitalName": "APOLLO",
+      "createdAt": "2026-06-02T10:40:24.125Z"
+    }
+  ]
+}
