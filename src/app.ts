@@ -42,6 +42,11 @@ app.use('/api/', apiRateLimiter);
 // Mount authentication sub-router
 app.use('/api/auth', authRoutes);
 
+// Welcome/Root endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Vyasa Backend API Server is active.' });
+});
+
 // Server status endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'active', time: new Date().toISOString() });
