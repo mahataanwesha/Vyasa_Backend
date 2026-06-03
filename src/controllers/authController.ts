@@ -8,7 +8,7 @@ import { AuthenticatedRequest } from '../middleware/auth';
 const JWT_SECRET = process.env.JWT_SECRET || 'nurselink-super-secret-key-change-in-prod';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
-const issueToken = (res: Response, user: User) => {
+const issueToken = (res: Response, user: User): string => {
   const token = jwt.sign(
     {
       id: user.id,
@@ -27,6 +27,8 @@ const issueToken = (res: Response, user: User) => {
     sameSite: isProd ? 'none' : 'lax',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
+
+  return token;
 };
 
 export const signup = async (req: Request, res: Response, next: NextFunction) => {
@@ -56,11 +58,12 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
     };
 
     db.addUser(newUser);
-    issueToken(res, newUser);
+    const token = issueToken(res, newUser);
 
     res.status(201).json({
       success: true,
       message: 'Signup successful!',
+      token,
       user: {
         id: newUser.id,
         email: newUser.email,
@@ -68,6 +71,9 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
         role: newUser.role,
         phone: newUser.phone,
         hospitalName: newUser.hospitalName,
+        profileCompleted: newUser.profileCompleted || false,
+        doctorProfile: newUser.doctorProfile,
+        hospitalProfile: newUser.hospitalProfile
       },
     });
   } catch (err) {
@@ -95,11 +101,12 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
       });
     }
 
-    issueToken(res, user);
+    const token = issueToken(res, user);
 
     res.status(200).json({
       success: true,
       message: 'Login successful!',
+      token,
       user: {
         id: user.id,
         email: user.email,
@@ -107,6 +114,9 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
         role: user.role,
         phone: user.phone,
         hospitalName: user.hospitalName,
+        profileCompleted: user.profileCompleted || false,
+        doctorProfile: user.doctorProfile,
+        hospitalProfile: user.hospitalProfile
       },
     });
   } catch (err) {
@@ -140,6 +150,9 @@ export const getMe = async (req: AuthenticatedRequest, res: Response, next: Next
         role: user.role,
         phone: user.phone,
         hospitalName: user.hospitalName,
+        profileCompleted: user.profileCompleted || false,
+        doctorProfile: user.doctorProfile,
+        hospitalProfile: user.hospitalProfile
       },
     });
   } catch (err) {
@@ -195,11 +208,12 @@ export const firebaseLogin = async (req: Request, res: Response, next: NextFunct
       user = newUser;
     }
 
-    issueToken(res, user);
+    const token = issueToken(res, user);
 
     res.status(200).json({
       success: true,
       message: 'Authentication successful via Firebase!',
+      token,
       user: {
         id: user.id,
         email: user.email,
@@ -207,8 +221,9 @@ export const firebaseLogin = async (req: Request, res: Response, next: NextFunct
         role: user.role,
         phone: user.phone,
         hospitalName: user.hospitalName,
-        profileCompleted: user.profileCompleted,
-        doctorProfile: user.doctorProfile
+        profileCompleted: user.profileCompleted || false,
+        doctorProfile: user.doctorProfile,
+        hospitalProfile: user.hospitalProfile
       },
     });
   } catch (err) {
