@@ -1,8 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
+import os from 'os';
+
 const DB_DIR = path.join(__dirname, '../../data');
 const DB_FILE = path.join(DB_DIR, 'db.json');
+const TEMP_DB_FILE = path.join(os.tmpdir(), 'vyasa-db.json');
 
 export interface AttachedDoctor {
   name: string;
@@ -86,24 +89,52 @@ class Database {
   }
 
   private init() {
-    if (!fs.existsSync(DB_DIR)) {
-      fs.mkdirSync(DB_DIR, { recursive: true });
+    // 1. Try to load from temp db file first (holds runtime writes in serverless)
+    if (fs.existsSync(TEMP_DB_FILE)) {
+      try {
+        const fileContent = fs.readFileSync(TEMP_DB_FILE, 'utf-8');
+        this.data = JSON.parse(fileContent);
+        return;
+      } catch (err) {
+        console.error('Error reading temp database file:', err);
+      }
     }
+
+    // 2. Fall back to read-only seed DB_FILE in the build
     if (fs.existsSync(DB_FILE)) {
       try {
         const fileContent = fs.readFileSync(DB_FILE, 'utf-8');
         this.data = JSON.parse(fileContent);
       } catch (err) {
-        console.error('Error reading database file, resetting...', err);
-        this.save();
+        console.error('Error reading seed database file:', err);
       }
     } else {
+      // Create empty structure if none exists
+      this.data = { users: [] };
       this.save();
     }
   }
 
   public save() {
-    fs.writeFileSync(DB_FILE, JSON.stringify(this.data, null, 2), 'utf-8');
+    const dataString = JSON.stringify(this.data, null, 2);
+
+    // 1. Always write to temp directory (writable on Vercel)
+    try {
+      fs.writeFileSync(TEMP_DB_FILE, dataString, 'utf-8');
+    } catch (err) {
+      console.error('Failed to write to temp database file:', err);
+    }
+
+    // 2. Try to write to local seed file (will fail with EROFS on Vercel, which is caught and ignored)
+    try {
+      if (!fs.existsSync(DB_DIR)) {
+        fs.mkdirSync(DB_DIR, { recursive: true });
+      }
+      fs.writeFileSync(DB_FILE, dataString, 'utf-8');
+    } catch (err) {
+      // Log but do not throw, allowing the server to respond successfully
+      console.warn('Could not write back to static db.json (normal in read-only serverless environment):', (err as Error).message);
+    }
   }
 
   public getUsers(): User[] {
