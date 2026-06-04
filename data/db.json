@@ -6,7 +6,80 @@
       "passwordHash": "firebase_authenticated_no_password",
       "fullName": "ASOKE MAHATA",
       "role": "Doctor",
-      "createdAt": "2026-06-02T10:25:01.140Z"
+      "createdAt": "2026-06-02T10:25:01.140Z",
+      "profileCompleted": true,
+      "doctorProfile": {
+        "title": "Dr.",
+        "fullName": "Anwesha Mahata",
+        "dob": "2004-01-26",
+        "gender": "Female",
+        "nationality": "Indian",
+        "languages": [
+          "English"
+        ],
+        "phone": "8250804886",
+        "whatsappNumber": "8250804886",
+        "address": "BKTPP",
+        "district": "BIRBHUM",
+        "cityState": "SIURI",
+        "pinCode": "731104",
+        "degrees": [
+          {
+            "degree": "MBBS",
+            "college": "Grant Medical College",
+            "university": "MUHS",
+            "country": "India",
+            "specialization": "General",
+            "year": "2016"
+          }
+        ],
+        "registrationNumber": "ABCD12345",
+        "medicalCouncil": "Medical Council of India (MCI)",
+        "dateOfRegistration": "2020-09-14",
+        "experienceYears": "5 Years",
+        "specialization": "General Practitioner",
+        "country": "India",
+        "clinicName": "APOLLO",
+        "clinicAddress": "JADAVPUR,KOLKATA",
+        "consultationFee": "₹500",
+        "opdTimings": {
+          "Monday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Tuesday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Wednesday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Thursday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Friday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "06:00 PM"
+          },
+          "Saturday": {
+            "active": true,
+            "start": "09:00 AM",
+            "end": "01:00 PM"
+          },
+          "Sunday": {
+            "active": false,
+            "start": "Closed",
+            "end": "Closed"
+          }
+        }
+      }
     },
     {
       "id": "u_1780396310238",
@@ -98,7 +171,87 @@
       "role": "Admin",
       "phone": "",
       "hospitalName": "APOLLO",
-      "createdAt": "2026-06-02T10:40:24.125Z"
+      "createdAt": "2026-06-02T10:40:24.125Z",
+      "profileCompleted": true,
+      "hospitalProfile": {
+        "institutionName": "APOLLO",
+        "legalStatus": "Pvt Ltd",
+        "establishmentYears": "5-10 Years",
+        "licenseNumber": "",
+        "gstNumber": "",
+        "servicesOffered": [
+          "OPD"
+        ],
+        "attachedDoctors": [
+          {
+            "title": "Dr.",
+            "name": "ANWESHA",
+            "dob": "1985-01-01",
+            "gender": "Male",
+            "phone": "9978456512",
+            "country": "India",
+            "district": "Default",
+            "pinCode": "400001",
+            "degree": "9AM - 5PM",
+            "college": "Medical College",
+            "university": "State University",
+            "yearOfPassing": "2010",
+            "designation": "ENT",
+            "speciality": "500 INR",
+            "department": "Outpatient Unit",
+            "registrationNumber": "MCI-56968",
+            "councilType": "Medical Council",
+            "registrationDate": "2010-08-15",
+            "validUpto": "2035-08-15",
+            "regCountry": "India"
+          }
+        ],
+        "attachedNurses": [
+          {
+            "name": "Nurse Clara Barton",
+            "phone": "+15554445555",
+            "shift": "Day Shift"
+          }
+        ],
+        "attachedStaff": [
+          {
+            "name": "John Doe",
+            "phone": "+15553332222",
+            "role": "Pharmacist"
+          }
+        ],
+        "supportedInsurances": [
+          "Star Health Insurance",
+          "HDFC Ergo"
+        ]
+      }
+    },
+    {
+      "id": "u_1780600640808",
+      "email": "dsz@gmail.com",
+      "passwordHash": "$2a$10$v/ysmjB5mND0K66LtGRG2.Ewg7qMYFbeYZSSsdh5VqytbNcrdDBrm",
+      "fullName": "swati ghosh",
+      "role": "Nurse",
+      "hospitalName": "city hospital",
+      "createdAt": "2026-06-04T19:17:20.808Z"
+    },
+    {
+      "id": "u_1780602047095",
+      "email": "bcd@gmail.com",
+      "passwordHash": "$2a$10$/0Rxx8BLpbSTM5hVLtu5s.zyRpbwCqqfSbyBc6zduODm5mxKXzNXC",
+      "fullName": "sruti",
+      "role": "Nurse",
+      "hospitalName": "general hospital",
+      "createdAt": "2026-06-04T19:40:47.095Z"
+    },
+    {
+      "id": "u_1780602884144",
+      "email": "lab@gmail.com",
+      "passwordHash": "$2a$10$KSO7VRs2enjJPDGAVXWLR.VqowZi/qzy3N2FHxOhUoo0pZtQFC2KG",
+      "fullName": "john",
+      "role": "Lab Technician",
+      "hospitalName": "ruby hospital",
+      "createdAt": "2026-06-04T19:54:44.144Z"
     }
   ]
 }
