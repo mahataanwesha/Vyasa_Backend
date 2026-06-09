@@ -252,6 +252,46 @@
       "role": "Lab Technician",
       "hospitalName": "ruby hospital",
       "createdAt": "2026-06-04T19:54:44.144Z"
+    },
+    {
+      "id": "u_1780891512059",
+      "email": "tuv@gmail.com",
+      "passwordHash": "$2a$10$LLOQfUULm5BwqlD9naowoeBwlKcAVooSWAbrKvyowIP2m98pCB7BO",
+      "fullName": "rohn dey",
+      "role": "Admin",
+      "hospitalName": "appollo hospital",
+      "createdAt": "2026-06-08T04:05:12.059Z"
+    },
+    {
+      "id": "u_1780891919281",
+      "email": "vdf@gmail.com",
+      "passwordHash": "$2a$10$OWZ76awgEQSFXLkHF.29lubelri9NQLUMG4TsqzFdsktci/BqBdR6",
+      "fullName": "rohn dey",
+      "role": "Admin",
+      "hospitalName": "apollo ",
+      "createdAt": "2026-06-08T04:11:59.281Z",
+      "profileCompleted": true,
+      "hospitalProfile": {
+        "institutionName": "apollo ",
+        "adminName": "rohn dey",
+        "age": "",
+        "gender": "",
+        "dob": "",
+        "phone": "123456",
+        "email": "vdf@gmail.com",
+        "address": "",
+        "department": "",
+        "designation": ""
+      }
+    },
+    {
+      "id": "u_1780892510118",
+      "email": "cdf@gmail.com",
+      "passwordHash": "$2a$10$NCAKYL3HwfxWb9Jw9yrjFO85rZjf9fOuo5RzurDscSBfi6Zmp1skG",
+      "fullName": "dey",
+      "role": "Admin",
+      "hospitalName": "apollo",
+      "createdAt": "2026-06-08T04:21:50.119Z"
     }
   ]
 }
